@@ -10,6 +10,9 @@
   --clr-accent: rgb(222, 52, 0);
   --clr-accent-dark: rgb(163, 38, 0);
   --clr-secondary: rgb(0, 62, 163);
+  --br: 0.5rem;
+  --trs: 0.4s; /* transition seconds */
+  --trs-fast: 0.1s; /* transition seconds */
 }
 
 body {
@@ -23,5 +26,117 @@ body {
 
 .streamers > img {
   background-color: #fff;
-  padding: 1rem;
+  // padding: 1rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+.game {
+  position: relative;
+  width: 13em;
+}
+
+.streamers {
+  display: flex;
+
+  img {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+  }
+}
+.rank {
+  z-index: 1000;
+  font-weight: bold;
+  font-size: 1.125rem;
+  position: absolute;
+  top: 0;
+  right: 0.8em;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 0.5em 0.5em 0.75em;
+  clip-path: polygon(100% 0%, 100% 100%, 50% 87%, 0 100%, 0 0);
+}
+.front {
+  transition: 100ms;
+  transition-timing-function: ease-in-out;
+
+  .thumbnail {
+    // transform: var(--trs-fast);
+    border-radius: var(--br);
+  }
+  .name {
+    margin: 0.9em 0;
+    border-radius: var(--br);
+  }
+  .stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--br);
+  }
+  .streamers img {
+    border: 2px solid var(--clr-dark);
+
+    &:nth-of-type(1) {
+      transform: translate(100%);
+      z-index: 1;
+    }
+    &:nth-of-type(2) {
+      transform: translate(50%);
+    }
+  }
+}
+
+.back {
+  display: none;
+}
+
+.background {
+  opacity: 0;
+  background: #234;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  transform: scale(0.2, 0.9);
+
+  border-radius: var(--br);
+}
+
+.game:hover {
+  .rank {
+    transform: translate(150%, -70%);
+  }
+  .front {
+    transform: translateY(-30%);
+    .thumbnail {
+      transform: scale(0.8);
+    }
+    .name {
+      text-align: center;
+      margin-top: -1rem;
+    }
+
+    .stats {
+      opacity: 0;
+    }
+  }
+
+  .background {
+    transition: transform var(--trs-fast) cubic-bezier(0.21, 0, 0.81, 1),
+      opacity 100ms linear;
+    opacity: 1;
+    transform: scale(1.5, 1.2);
+  }
 }
