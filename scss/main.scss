@@ -52,7 +52,7 @@ p {
   font-weight: 500;
   text-decoration: none;
   text-align: center;
-  margin: 0.2rem 0;
+  margin: 1.2rem 0 1.82rem 0;
   font-size: 1rem;
 }
 
@@ -64,6 +64,7 @@ p {
 
 .streamers {
   display: flex;
+  text-align: center;
 
   img {
     width: 2em;
@@ -125,13 +126,27 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  transform: translateY(31px);
+  transition: transform 250, opacity 150ms;
 
   .streaming-info {
     text-align: center;
     columns: 2;
     column-rule: 1px solid rgba(255, 255, 255, 0.25);
     // transform: translateY(-12px);
+  }
+
+  .streamers {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .streamer {
+    font-size: 0.9rem;
+  }
+
+  .name {
+    font-weight: bold;
   }
 
   .game-stat {
@@ -161,7 +176,7 @@ p {
 .game:hover,
 .hover {
   .rank {
-    transform: translate(150%, -192%);
+    transform: translate(150%, -135%);
   }
   .front {
     transform: translateY(-43%);
@@ -170,6 +185,7 @@ p {
     }
     .name {
       animation: gameName 250ms forwards;
+      text-align: center;
     }
 
     .stats {

@@ -55,7 +55,7 @@ p {
   font-weight: 500;
   text-decoration: none;
   text-align: center;
-  margin: 0.2rem 0;
+  margin: 1.2rem 0 1.82rem 0;
   font-size: 1rem;
 }
 
@@ -69,6 +69,7 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  text-align: center;
 }
 
 .streamers img {
@@ -152,7 +153,12 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 1rem;
+  -webkit-transform: translateY(31px);
+          transform: translateY(31px);
+  -webkit-transition: opacity 150ms, -webkit-transform 250;
+  transition: opacity 150ms, -webkit-transform 250;
+  transition: transform 250, opacity 150ms;
+  transition: transform 250, opacity 150ms, -webkit-transform 250;
 }
 
 .back .streaming-info {
@@ -161,6 +167,21 @@ p {
           columns: 2;
   -webkit-column-rule: 1px solid rgba(255, 255, 255, 0.25);
           column-rule: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.back .streamers {
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.back .streamer {
+  font-size: 0.9rem;
+}
+
+.back .name {
+  font-weight: bold;
 }
 
 .back .game-stat {
@@ -189,8 +210,8 @@ p {
 
 .game:hover .rank,
 .hover .rank {
-  -webkit-transform: translate(150%, -192%);
-          transform: translate(150%, -192%);
+  -webkit-transform: translate(150%, -135%);
+          transform: translate(150%, -135%);
 }
 
 .game:hover .front,
@@ -209,6 +230,7 @@ p {
 .hover .front .name {
   -webkit-animation: gameName 250ms forwards;
           animation: gameName 250ms forwards;
+  text-align: center;
 }
 
 .game:hover .front .stats,
